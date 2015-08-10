@@ -19,7 +19,7 @@ This was my first project with React. `public/js/main.js` contains the entire im
 
 **Notes and Potential Improvements**
 
-For the d3 and jQuery projects, the use of Angular was used for convenience and modularity. There are several improvements that can be made:
+For the d3 and jQuery projects, Angular was used for convenience and modularity. There are several improvements that can be made:
   - The helper functions should be moved into a factory.
   - The adding of HTML elements as strings could be condensed and moved into a function.
   - The first HackerNews API call can possibly be moved into a state resolve.
