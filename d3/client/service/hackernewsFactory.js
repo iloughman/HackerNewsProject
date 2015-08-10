@@ -15,7 +15,6 @@ app.factory('hackernewsFactory', function($q){
 				ref.child('item/'+id).once('value', function(snap){
 					itemArray.push(snap.val())
 					if (itemArray.length >= idArray.length){
-						console.log("topStories", itemArray)
 						deferred.resolve(itemArray);
 					}
 				});
@@ -34,7 +33,6 @@ app.factory('hackernewsFactory', function($q){
 				ref.child('item/'+id).once('value', function(snap){
 					itemArray.push(snap.val())
 					if (itemArray.length >= idArray.length){
-						console.log("topStories", itemArray)
 						deferred2.resolve(itemArray);
 					}
 				});

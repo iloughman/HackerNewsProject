@@ -36,6 +36,16 @@ header {
 	font-size: 12px;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+	padding: 0px 3px;
+
+	.title {
+		display: inline-block;
+	}
+}
+
 .title {
 	// padding: 2px 5px;
 	// display: inline-block;
@@ -59,16 +69,6 @@ header {
 
 .index {
 	color: #828282;	
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
-	padding: 0px 3px;
-
-	.title {
-		display: inline-block;
-	}
 }
 
 .articleUrl {
