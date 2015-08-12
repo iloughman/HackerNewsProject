@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base href="/" />
+
+	<link rel="stylesheet" type="text/css" href="main.css" />
+
+	<script src="/jquery/dist/jquery.js"></script>
+	<script src="/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/angular/angular.js"></script>
+	<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+	<script src="main.js"></script>
+
+
+</head>
+<body ng-app="hackernews">
+	<navbar></navbar>
+	<div class="articleList" ui-view ></div>
+</body>
+
+</html>

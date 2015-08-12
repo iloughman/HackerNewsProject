@@ -1,45 +1,42 @@
 app.factory('hackernewsFactory', function($q){
 	var factory = {};
-	var ref = new Firebase("https://hacker-news.firebaseio.com/v0/");
-	var itemRef;
-	var numStories = 30;
-	var deferred = $q.defer();
-	var deferred2 = $q.defer();
 
-	factory.setHNtopStoriesAPIListener = function(){
+	factory.getHNStories = function(idArray,url){
 
-		ref.child('topstories').on('value', function(snapshot){
-			var idArray = snapshot.val().slice(0,numStories);
-			var itemArray = []
-			idArray.forEach(function(id){
-				ref.child('item/'+id).once('value', function(snap){
-					itemArray.push(snap.val())
-					if (itemArray.length >= idArray.length){
-						deferred.resolve(itemArray);
-					}
-				});
+		var ref = new Firebase(url);
+		var deferred = $q.defer();
+		var itemArray = []
+
+		idArray.forEach(function(id){
+			ref.child('item/'+id).once('value', function(snap){
+				itemArray.push(snap.val())
+				if (itemArray.length >= idArray.length){
+					console.log("item", itemArray)
+					deferred.resolve(itemArray);
+				}
 			});
-		})
+		});
 
 		return deferred.promise;
 	}
 
-	factory.setHNnewStoriesAPIListener = function(){
+	factory.getNewHNStories = function(idArray,url){
 
-		ref.child('newstories').on('value', function(snapshot){
-			var idArray = snapshot.val().slice(0,numStories);
-			var itemArray = []
-			idArray.forEach(function(id){
-				ref.child('item/'+id).once('value', function(snap){
-					itemArray.push(snap.val())
-					if (itemArray.length >= idArray.length){
-						deferred2.resolve(itemArray);
-					}
-				});
+		var ref = new Firebase(url);
+		var deferred = $q.defer();
+		var itemArray = []
+
+		idArray.forEach(function(id){
+			ref.child('item/'+id).once('value', function(snap){
+				itemArray.push(snap.val())
+				if (itemArray.length >= idArray.length){
+					console.log("item", itemArray)
+					deferred.resolve(itemArray);
+				}
 			});
-		})
-
-		return deferred2.promise;
+		});
+		
+		return deferred.promise;
 	}
 
 	return factory;
