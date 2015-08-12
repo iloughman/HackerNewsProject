@@ -1,8 +1,6 @@
-# HackerNewsProject
-Three implementations of the Hacker News landing page
+# Hacker News Project
 
-Each folder contains a separate project. Please clone the entire repo, change to the appropriate directory, and
-follow the instructions below:
+Each folder contains a separate project with a different implementation of the Hacker News landing page. Please clone the entire repo, change to the appropriate directory, and follow the instructions below:
 
 **d3 and jQuery**
 
@@ -18,6 +16,8 @@ This was my first project with React. `public/js/main.js` contains the entire im
 
 
 **Notes and Potential Improvements**
+
+All implementations dynamically update the score, time, and comments displayed about each article. D3 and React will update the order of the articles, which shifts frequently (oddly enough, Hacker News itself does not make this update without a page refresh). 
 
 For the d3 and jQuery projects, Angular was used for convenience and modularity. There are several improvements that can be made:
   - The helper functions should be moved into a factory.
