@@ -5,7 +5,8 @@ app.controller('topNewsCtrl', function($scope, hackernewsFactory, formatFactory)
     var numStories = 30;
     var getMinutes = formatFactory.getMinutes;
     var formatComments = formatFactory.formatComments;
-    var formatUrl = formatFactory.formatUrl
+    var formatUrl = formatFactory.formatUrl;
+    var formatPoints = formatFactory.formatPoints;
 
     var update = function(data){
         var divs = d3.select('div.topNews').selectAll('div')
@@ -27,7 +28,7 @@ app.controller('topNewsCtrl', function($scope, hackernewsFactory, formatFactory)
       	divs.append('div')
       		.attr('class', 'lineTwo')
       		.html(function(d){
-      			return '<span>'+d.score+' points by <a href=https://news.ycombinator.com/user?id='+
+      			return '<span>'+formatPoints(d.score)+' points by <a href=https://news.ycombinator.com/user?id='+
                 d.by+'>'+d.by+'</a>'+
                 '<a href=https://news.ycombinator.com/item?id='+d.id+'>'+getMinutes(d.time)+'</a> | '+
                 '<a href=https://news.ycombinator.com/item?id='+d.id+'>'+formatComments(d.descendants)+'</span>'})

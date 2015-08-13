@@ -1,5 +1,8 @@
 app.controller('newestCtrl', function($scope, hackernewsFactory) {
-  
+    
+    var url = "https://hacker-news.firebaseio.com/v0/";
+    var ref = new Firebase(url);
+    var numStories = 30;
     var commentLink = 'https://news.ycombinator.com/item?id=';
 
     var update = function(itemArray){
@@ -45,8 +48,11 @@ app.controller('newestCtrl', function($scope, hackernewsFactory) {
         }
     };
 
-    hackernewsFactory.setHNnewStoriesAPIListener().then(function(itemArray){
-        update(itemArray)
+    ref.child('newstories').on('value', function(snapshot){
+        var idArray = snapshot.val().slice(0,numStories);
+        hackernewsFactory.getNewHNStories(idArray,url).then(function(newStories){
+            update(newStories)
+        });
     });
 
     // Helper Functions

@@ -23,6 +23,13 @@ header {
   background-color: #ff6600;
   font-size: 12px; }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0px 3px; }
+  a .title {
+    display: inline-block; }
+
 .title {
   font-weight: bold; }
 
@@ -39,13 +46,6 @@ header {
 
 .index {
   color: #828282; }
-
-a {
-  text-decoration: none;
-  color: inherit;
-  padding: 0px 3px; }
-  a .title {
-    display: inline-block; }
 
 .articleUrl {
   font-size: 11px;

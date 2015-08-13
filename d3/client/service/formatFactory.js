@@ -18,5 +18,12 @@ app.factory('formatFactory', function(){
 	    if (result.indexOf('www.') === 0) {result = result.slice(4,result.length)}
 	        return '('+result.slice(0,result.indexOf('/'))+')';
 	};
+
+	factory.formatPoints = function(points){
+		return points > 1 ? points+' points': (
+			points === 1 ? points+' point' : ''
+		);
+	};
+
 	return factory;
 });
